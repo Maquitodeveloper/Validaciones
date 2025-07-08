@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Validación</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <section class="validation-container">
+        <h1>Formulario de Registro</h1>
+
+        <form id="registrationForm">
+            <div class="input-control">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" placeholder="Debe tener entre 6 y 16 caracteres" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="input-control">
+                <label for="email">Gmail</label>
+                <input type="email" id="email" placeholder="ejemplo@gmail.com" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="error-message"></small>
+            </div>
+            
+            <div class="input-control country-code">
+                <label for="countryCode">Código de País</label>
+                <select id="countryCode"></select>
+            </div>
+
+            <div class="input-control">
+                <label for="phone">Número de Teléfono</label>
+                <input type="text" id="phone" placeholder="Número con código de país (Ej: +58 XXXXXXX)" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="input-control">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="Mín. 8 caracteres (mayúscula, minúscula, número, símbolo)" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="input-control">
+                <label for="confirmPassword">Confirmar Contraseña</label>
+                <input type="password" id="confirmPassword" placeholder="Repite tu contraseña" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="error-message"></small>
+            </div>
+
+            <button type="submit" id="submitButton">Registrar</button>
+        </form>
+
+        <div class="success-message hidden">
+            <p>¡Registro exitoso! Compadre 🎉</p>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>
