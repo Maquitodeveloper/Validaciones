@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (username === '') return false;
                 return username.length >= 6 && username.length <= 16;
             },
-            errorMessage: 'El usuario es obligatorio y debe tener entre 6 y 16 caracteres, ¡no te pases!'
+            errorMessage: 'Ese nombre no me sirve, entre 6 a 16 caracteres yulisa!'
         },
         {
             element: emailInput,
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (email === '') return false;
                 return /^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email);
             },
-            errorMessage: '¡El correo es obligatorio y debe ser de Gmail, mi hermano! Pon uno válido.'
+            errorMessage: '¡El correo es obligatorio y debe ser de Gmail, Manin! '
         },
         {
             element: phoneInput,
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const phoneRegex = new RegExp(`^${escapedCountryCode}\\d{7,15}$`);
                 return phoneRegex.test(fullPhoneNumber);
             },
-            errorMessage: 'El número de teléfono es obligatorio, debe contener el código de país y luego entre 7 y 15 dígitos numéricos, ¡pilas!'
+            errorMessage: 'El número de teléfono debe contener entre 7 y 15 dígitos numéricos, ¡pilas!'
         },
         {
             element: passwordInput,
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
                 return password.length >= 4 && password.length <= 18 && passwordRegex.test(password);
             },
-            errorMessage: 'La clave es obligatoria, debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo, ¡Activate en la pista!'
+            errorMessage: 'La clave es obligatoria, debe tener al menos 8 caractere($,1,M,m)¡Activate en la pista!'
         },
         {
             element: confirmPasswordInput,
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (confirmPassword === '') return false;
                 return confirmPassword === passwordInput.value;
             },
-            errorMessage: '¡La confirmación es obligatoria y las contraseñas no son iguales, aweboniao!'
+            errorMessage: '¡Las contraseñas no son iguales, aweboniao!'
         }
     ];
 
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     phoneInput.placeholder = `Número de Teléfono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
     submitButton.disabled = true; // Deshabilitar el botón al cargar la página
 
-    // --- 6. ¡Aquí le metemos los "escuchadores" de eventos! ---
+    // --- 6. ¡Aquí le metemos los "escuchadores" ---
     formFields.forEach(field => {
         field.element.addEventListener('input', () => {
             const value = field.element.value.trim();
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (isFormValid) {
-            alert("Estas registrado manin,super chiquiluky");
+            alert("😜🤪Estas registrado manin,super chiquiluky😜🤪");
             form.reset();
 
             document.querySelectorAll('.input-control input, .input-control select').forEach(element => {
