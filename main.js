@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmPasswordInput = document.getElementById('confirmPassword');
     const submitButton = document.getElementById('submitButton');
 
+    // ¡Aquí agregamos la referencia a tu elemento de video!
+    const backgroundVideo = document.getElementById('backgroundVideo');
+
     // --- 2. Datos de Países ---
     const countries = [
         { name: 'Estados Unidos', code: '+1' }, { name: 'Canadá', code: '+1' },
@@ -18,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Chile', code: '+56' }, { name: 'Perú', code: '+51' },
         { name: 'Ecuador', code: '+593' }, { name: 'Bolivia', code: '+591' },
         { name: 'Paraguay', code: '+595' }, { name: 'Uruguay', code: '+598' },
-        { name: 'Brasil', code: '+55' }, { name: 'Alemania', code: '+49' },
+        { name: 'Brasil', code: '+55' }, { name: 'Alemania', 'code': '+49' },
         { name: 'Francia', code: '+33' }, { name: 'Italia', code: '+39' },
         { name: 'Australia', code: '+61' }, { name: 'India', code: '+91' },
         { name: 'China', code: '+86' }, { name: 'Japón', code: '+81' },
@@ -116,20 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     // --- 4. Lógica para verificar la validez del formulario y habilitar/deshabilitar el botón ---
-    // Esta lógica se inyecta directamente donde se necesita.
     const checkFormAndToggleButton = () => {
         const allFieldsValid = formFields.every(field => {
             const value = field.element.value.trim();
             if (!field.validationFn(value)) {
-                return false; // Si un campo no es válido, el formulario no es válido
+                return false;
             }
-            return true; // Campo individual válido
+            return true;
         });
         submitButton.disabled = !allFieldsValid;
     };
 
     // --- 5. Población de códigos de país y setup inicial ---
-    // (Esta lógica se ejecuta una vez al cargar el DOM)
     countries.forEach(country => {
         const option = document.createElement('option');
         option.value = country.code;
@@ -158,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         phoneInput.value = countryCodeSelect.value;
         phoneInput.placeholder = `Número de Teléfono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
         // Revalida el campo de teléfono después de cambiar el código
-        const phoneFieldConfig = formFields[2]; // Obtener la config del teléfono
+        const phoneFieldConfig = formFields[2];
         const phoneValue = phoneInput.value.trim();
         if (!phoneFieldConfig.validationFn(phoneValue)) {
             updateFieldStatus(phoneInput, 'error', phoneFieldConfig.errorMessage);
@@ -168,11 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
         checkFormAndToggleButton();
     });
 
-    // --- 7. ¡El gran evento: cuando le das a 'Registrar'! ---
+    // --- 7. ¡El gran evento: cuando le das a 'Registrar'! que locurita ---
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Validar todos los campos y actualizar su estado visual
         let isFormValid = true;
         formFields.forEach(field => {
             const value = field.element.value.trim();
@@ -192,6 +192,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateFieldStatus(element, 'clear');
             });
             submitButton.disabled = true;
+
+            // --- ¡EL VIDEO Y EL FONDO! ---
+            // Oculta el formulario completamente
+            form.style.display = 'none';
+            form.h1.display = 'none'
+
+            // Cambia el color de fondo del body (el video lo cubrirá, pero por si acaso)
+            document.body.style.backgroundColor = '#000000'; // Puedes elegir el color que quieras
+
+            // Muestra el video de fondo 
+            backgroundVideo.style.display = 'block'; // Hace visible el video
+            backgroundVideo.play(); // Inicia la reproducción
         }
     });
 });
