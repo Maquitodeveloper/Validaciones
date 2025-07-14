@@ -122,9 +122,9 @@ input:-webkit-autofill:active {
 
 .input-control small {
     position: absolute;
-    top: 77px;
+    top: 73px;
     left: 0;
-    font-weight: 800;
+    font-weight: 200;
     visibility: hidden;
 }
 
