@@ -8,11 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
     const submitButton = document.getElementById('submitButton');
-
-    // ¡Aqui agregamos la referencia a tu elemento de video!
+    const toggle = document.getElementById('toggle-password')
     const backgroundVideo = document.getElementById('backgroundVideo');
 
-    // --- 2. Datos de Paises ---
+    // ---Datos de Paises en un lista de una vez ---
     const countries = [
         { name: 'Estados Unidos', code: '+1' }, { name: 'Canada', code: '+1' },
         { name: 'Reino Unido', code: '+44' }, { name: 'Espana', code: '+34' },
@@ -40,10 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Vietnam', code: '+84' }, { name: 'Nueva Zelanda', code: '+64' }
     ];
 
-    /**
-     * ¡La unica funcion helper que lo maneja todo visualmente! (exito, error, o limpieza).
-     * Esta es una de las dos funciones permitidas.
-     */
     const updateFieldStatus = (element, status, message = '') => {
         const inputControl = element.parentElement;
         const errorDisplay = inputControl.querySelector('.error-message');
@@ -67,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- 3. Configuracion de los campos con sus validaciones en linea ---
+    // --- 3. Configuracion de los campos---
     const formFields = [
         {
             element: usernameInput,
