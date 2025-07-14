@@ -9,31 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmPasswordInput = document.getElementById('confirmPassword');
     const submitButton = document.getElementById('submitButton');
 
-    // ¡Aquí agregamos la referencia a tu elemento de video!
+    // ¡Aqui agregamos la referencia a tu elemento de video!
     const backgroundVideo = document.getElementById('backgroundVideo');
 
-    // --- 2. Datos de Países ---
+    // --- 2. Datos de Paises ---
     const countries = [
-        { name: 'Estados Unidos', code: '+1' }, { name: 'Canadá', code: '+1' },
-        { name: 'Reino Unido', code: '+44' }, { name: 'España', code: '+34' },
-        { name: 'México', code: '+52' }, { name: 'Argentina', code: '+54' },
+        { name: 'Estados Unidos', code: '+1' }, { name: 'Canada', code: '+1' },
+        { name: 'Reino Unido', code: '+44' }, { name: 'Espana', code: '+34' },
+        { name: 'Mexico', code: '+52' }, { name: 'Argentina', code: '+54' },
         { name: 'Colombia', code: '+57' }, { name: 'Venezuela', code: '+58' },
-        { name: 'Chile', code: '+56' }, { name: 'Perú', code: '+51' },
+        { name: 'Chile', code: '+56' }, { name: 'Peru', code: '+51' },
         { name: 'Ecuador', code: '+593' }, { name: 'Bolivia', code: '+591' },
         { name: 'Paraguay', code: '+595' }, { name: 'Uruguay', code: '+598' },
         { name: 'Brasil', code: '+55' }, { name: 'Alemania', 'code': '+49' },
         { name: 'Francia', code: '+33' }, { name: 'Italia', code: '+39' },
         { name: 'Australia', code: '+61' }, { name: 'India', code: '+91' },
-        { name: 'China', code: '+86' }, { name: 'Japón', code: '+81' },
-        { name: 'Sudáfrica', code: '+27' }, { name: 'Nigeria', code: '+234' },
+        { name: 'China', code: '+86' }, { name: 'Japon', code: '+81' },
+        { name: 'Sudafrica', code: '+27' }, { name: 'Nigeria', code: '+234' },
         { name: 'Egipto', code: '+20' }, { name: 'Arabia Saudita', code: '+966' },
-        { name: 'Emiratos Árabes Unidos', code: '+971' }, { name: 'Rusia', code: '+7' },
-        { name: 'Portugal', code: '+351' }, { name: 'Bélgica', code: '+32' },
-        { name: 'Países Bajos', code: '+31' }, { name: 'Suecia', code: '+46' },
+        { name: 'Emiratos Arabes Unidos', code: '+971' }, { name: 'Rusia', code: '+7' },
+        { name: 'Portugal', code: '+351' }, { name: 'Belgica', code: '+32' },
+        { name: 'Paises Bajos', code: '+31' }, { name: 'Suecia', code: '+46' },
         { name: 'Noruega', code: '+47' }, { name: 'Dinamarca', code: '+45' },
         { name: 'Finlandia', code: '+358' }, { name: 'Irlanda', code: '+353' },
         { name: 'Suiza', code: '+41' }, { name: 'Austria', code: '+43' },
-        { name: 'Grecia', code: '+30' }, { name: 'Turquía', code: '+90' },
+        { name: 'Grecia', code: '+30' }, { name: 'Turquia', code: '+90' },
         { name: 'Corea del Sur', code: '+82' }, { name: 'Singapur', code: '+65' },
         { name: 'Malasia', code: '+60' }, { name: 'Indonesia', code: '+62' },
         { name: 'Tailandia', code: '+66' }, { name: 'Filipinas', code: '+63' },
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     /**
-     * ¡La única función helper que lo maneja todo visualmente! (éxito, error, o limpieza).
+     * ¡La unica funcion helper que lo maneja todo visualmente! (exito, error, o limpieza).
      * Esta es una de las dos funciones permitidas.
      */
     const updateFieldStatus = (element, status, message = '') => {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- 3. Configuración de los campos con sus validaciones en línea ---
+    // --- 3. Configuracion de los campos con sus validaciones en linea ---
     const formFields = [
         {
             element: usernameInput,
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element: phoneInput,
             validationFn: (fullPhoneNumber) => {
                 const currentCountryCode = countryCodeSelect.value;
-                // Si está vacío o solo contiene el código de país, no es válido
+                // Si esta vacio o solo contiene el codigo de pais, no es valido
                 if (fullPhoneNumber === '' || fullPhoneNumber === currentCountryCode) {
                     return false;
                 }
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const phoneRegex = new RegExp(`^${escapedCountryCode}\\d{7,15}$`);
                 return phoneRegex.test(fullPhoneNumber);
             },
-            errorMessage: 'El número de teléfono debe contener entre 7 y 15 dígitos numéricos, ¡pilas!'
+            errorMessage: 'El numero de telefono debe contener entre 7 y 15 digitos numericos, ¡pilas!'
         },
         {
             element: passwordInput,
@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (confirmPassword === '') return false;
                 return confirmPassword === passwordInput.value;
             },
-            errorMessage: '¡Las contraseñas no son iguales, aweboniao!'
+            errorMessage: '¡Las contrasenas no son iguales, aweboniao!'
         }
     ];
 
-    // --- 4. Lógica para verificar la validez del formulario y habilitar/deshabilitar el botón ---
+    // --- 4. Logica para verificar la validez del formulario y habilitar/deshabilitar el boton ---
     const checkFormAndToggleButton = () => {
         const allFieldsValid = formFields.every(field => {
             const value = field.element.value.trim();
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitButton.disabled = !allFieldsValid;
     };
 
-    // --- 5. Población de códigos de país y setup inicial ---
+    // --- 5. Poblacion de codigos de pais y setup inicial ---
     countries.forEach(country => {
         const option = document.createElement('option');
         option.value = country.code;
@@ -139,10 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     countryCodeSelect.value = '+58'; // Venezuela por defecto
     phoneInput.value = countryCodeSelect.value;
-    phoneInput.placeholder = `Número de Teléfono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
-    submitButton.disabled = true; // Deshabilitar el botón al cargar la página
+    phoneInput.placeholder = `Numero de Telefono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
+    submitButton.disabled = true; // Deshabilitar el boton al cargar la pagina
 
-    // --- 6. ¡Aquí le metemos los "escuchadores" ---
+    // --- 6. ¡Aqui le metemos los "escuchadores" ---
     formFields.forEach(field => {
         field.element.addEventListener('input', () => {
             const value = field.element.value.trim();
@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     countryCodeSelect.addEventListener('change', () => {
         phoneInput.value = countryCodeSelect.value;
-        phoneInput.placeholder = `Número de Teléfono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
-        // Revalida el campo de teléfono después de cambiar el código
+        phoneInput.placeholder = `Numero de Telefono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
+        // Revalida el campo de telefono despues de cambiar el codigo
         const phoneFieldConfig = formFields[2];
         const phoneValue = phoneInput.value.trim();
         if (!phoneFieldConfig.validationFn(phoneValue)) {
@@ -197,12 +197,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Oculta el formulario completamente
             form.style.display = 'none';
 
-            // Cambia el color de fondo del body (el video lo cubrirá, pero por si acaso)
+            // Cambia el color de fondo del body (el video lo cubrira, pero por si acaso)
             document.body.style.backgroundColor = '#000000'; // Puedes elegir el color que quieras
 
             // Muestra el video de fondo 
             backgroundVideo.style.display = 'block'; // Hace visible el video
-            backgroundVideo.play(); // Inicia la reproducción
+            backgroundVideo.play(); // Inicia la reproduccion
         }
     });
 });
