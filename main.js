@@ -196,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // --- ¡EL VIDEO Y EL FONDO! ---
             // Oculta el formulario completamente
             form.style.display = 'none';
-            form.h1.display = 'none'
 
             // Cambia el color de fondo del body (el video lo cubrirá, pero por si acaso)
             document.body.style.backgroundColor = '#000000'; // Puedes elegir el color que quieras
