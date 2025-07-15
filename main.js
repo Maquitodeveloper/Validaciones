@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. ¡Agarramos los elementos del HTML, como los pilares de la casa! ---
     const form = document.getElementById('registrationForm');
     const usernameInput = document.getElementById('username');
     const emailInput = document.getElementById('email');
