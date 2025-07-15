@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('toggle-password')
     const backgroundVideo = document.getElementById('backgroundVideo');
 
-    // ---Datos de Paises en un lista de una vez ---
+    // ---Datos de Paises en un lista de una vez sin tanto peo ---
     const countries = [
         { name: 'Estados Unidos', code: '+1' }, { name: 'Canada', code: '+1' },
         { name: 'Reino Unido', code: '+44' }, { name: 'Espana', code: '+34' },
@@ -45,13 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const checkIcon = inputControl.querySelector('.fa-check-circle');
         const exclamationIcon = inputControl.querySelector('.fa-exclamation-circle');
 
-        // Primero, limpia cualquier estado previo
+        // Primero, limpia 
         inputControl.classList.remove('success', 'error');
         if (errorDisplay) errorDisplay.textContent = '';
         if (checkIcon) checkIcon.style.visibility = 'hidden';
         if (exclamationIcon) exclamationIcon.style.visibility = 'hidden';
 
-        // Luego, aplica el nuevo estado
+    
         if (status === 'success') {
             inputControl.classList.add('success');
             if (checkIcon) checkIcon.style.visibility = 'visible';
