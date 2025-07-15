@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- 3. Configuracion de los campos---
+    // --- 3. Configuracion de los campos [fields]---
     const formFields = [
         {
             element: usernameInput,
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element: phoneInput,
             validationFn: (fullPhoneNumber) => {
                 const currentCountryCode = countryCodeSelect.value;
-                // Si esta vacio o solo contiene el codigo de pais, no es valido
+                // Si esta vacio o solo contiene el codigo de pais, no sirve
                 if (fullPhoneNumber === '' || fullPhoneNumber === currentCountryCode) {
                     return false;
                 }
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
                 return password.length >= 4 && password.length <= 18 && passwordRegex.test(password);
             },
-            errorMessage: 'La clave es obligatoria, debe tener al menos 8 caractere($,1,M,m)¡Activate en la pista!'
+            errorMessage: 'Debe tener al menos 8 caractere($,1,M,m)¡Activate en la pista!'
         },
         {
             element: confirmPasswordInput,
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (confirmPassword === '') return false;
                 return confirmPassword === passwordInput.value;
             },
-            errorMessage: '¡Las contrasenas no son iguales, aweboniao!'
+            errorMessage: '¡Las contrasenas no son iguales, Aweboniao!'
         }
     ];
 
@@ -125,19 +125,19 @@ document.addEventListener('DOMContentLoaded', () => {
         submitButton.disabled = !allFieldsValid;
     };
 
-    // --- 5. Poblacion de codigos de pais y setup inicial ---
+    // --- 5. Codigos de pais ---
     countries.forEach(country => {
         const option = document.createElement('option');
         option.value = country.code;
         option.textContent = country.name;
         countryCodeSelect.appendChild(option);
     });
-    countryCodeSelect.value = '+58'; // Venezuela por defecto
+    countryCodeSelect.value = '+58'; // Venecozuela
     phoneInput.value = countryCodeSelect.value;
     phoneInput.placeholder = `Numero de Telefono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
     submitButton.disabled = true; // Deshabilitar el boton al cargar la pagina
 
-    // --- 6. ¡Aqui le metemos los "escuchadores" ---
+    // --- 6. ¡Aqui le metemos eschadores los pajuitos
     formFields.forEach(field => {
         field.element.addEventListener('input', () => {
             const value = field.element.value.trim();
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     countryCodeSelect.addEventListener('change', () => {
         phoneInput.value = countryCodeSelect.value;
         phoneInput.placeholder = `Numero de Telefono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
-        // Revalida el campo de telefono despues de cambiar el codigo
+        // Vuelve a validar el campo de telefono despues de cambiar el codigo
         const phoneFieldConfig = formFields[2];
         const phoneValue = phoneInput.value.trim();
         if (!phoneFieldConfig.validationFn(phoneValue)) {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkFormAndToggleButton();
     });
 
-    // --- 7. ¡El gran evento: cuando le das a 'Registrar'! que locurita ---
+    // --- 6. ¡'Registrar'! que locurita ---
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -188,16 +188,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             submitButton.disabled = true;
 
-            // --- ¡EL VIDEO Y EL FONDO! ---
-            // Oculta el formulario completamente
+            // --- ¡EL INIESTASO! ---
+            // ESCONDEformulario 
             form.style.display = 'none';
 
             // Cambia el color de fondo del body (el video lo cubrira, pero por si acaso)
-            document.body.style.backgroundColor = '#000000'; // Puedes elegir el color que quieras
+            document.body.style.backgroundColor = '#000000'; 
 
-            // Muestra el video de fondo 
-            backgroundVideo.style.display = 'block'; // Hace visible el video
-            backgroundVideo.play(); // Inicia la reproduccion
+            // Muestra el INIESTASO que gran video
+            backgroundVideo.style.display = 'block'; // Hace visible el videito enfoca enfoca
+            backgroundVideo.play(); 
         }
     });
 });
