@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // --- 4. Logica para verificar la validez del formulario y habilitar/deshabilitar el boton ---
+    // --- 4. Habilitar/deshabilitar el botoM---
     const checkFormAndToggleButton = () => {
         const allFieldsValid = formFields.every(field => {
             const value = field.element.value.trim();
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     phoneInput.placeholder = `Numero de Telefono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
     submitButton.disabled = true; // Deshabilitar el boton al cargar la pagina
 
-    // --- 6. ¡Aqui le metemos eschadores los pajuitos
+    // --- 6. ¡Aqui le metemos los pajuitos
     formFields.forEach(field => {
         field.element.addEventListener('input', () => {
             const value = field.element.value.trim();
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     countryCodeSelect.addEventListener('change', () => {
         phoneInput.value = countryCodeSelect.value;
         phoneInput.placeholder = `Numero de Telefono (Ej: ${countryCodeSelect.value} XXXX-XXXXXXX)`;
-        // Vuelve a validar el campo de telefono despues de cambiar el codigo
+        // Vuelve a validar el campo de telefono 
         const phoneFieldConfig = formFields[2];
         const phoneValue = phoneInput.value.trim();
         if (!phoneFieldConfig.validationFn(phoneValue)) {
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkFormAndToggleButton();
     });
 
-    // --- 6. ¡'Registrar'! que locurita ---
+    // --- 6. ¡'Registrar'! que locurita CHAMO TENGO SUENO Y SIGO EN ESTO HELP SACQUENME DE VENEZUELA ---
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -188,13 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.disabled = true;
 
             // --- ¡EL INIESTASO! ---
-            // ESCONDEformulario 
+           
             form.style.display = 'none';
 
-            // Cambia el color de fondo del body (el video lo cubrira, pero por si acaso)
             document.body.style.backgroundColor = '#000000'; 
 
-            // Muestra el INIESTASO que gran video
+            // Muestra el INIESTASO que gran video easy asi se terminan las cositas easy 
             backgroundVideo.style.display = 'block'; // Hace visible el videito enfoca enfoca
             backgroundVideo.play(); 
         }
