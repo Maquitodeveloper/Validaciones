@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (confirmPassword === '') return false;
                 return confirmPassword === passwordInput.value;
             },
-            errorMessage: '¡Las contrasenas no son iguales, Aweboniao!'
+            errorMessage: '¡Las contrasenas no son iguales, deben coincidir'
         }
     ];
 
