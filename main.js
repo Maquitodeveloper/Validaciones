@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (isFormValid) {
-            alert("😜🤪Estas registrado manin,super chiquiluky😜🤪");
+            alert("😜🤪Felicidades ya estas registrado😜🤪");
             form.reset();
 
             document.querySelectorAll('.input-control input, .input-control select').forEach(element => {
