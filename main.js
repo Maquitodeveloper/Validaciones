@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (username === '') return false;
                 return username.length >= 6 && username.length <= 16;
             },
-            errorMessage: 'Ese nombre no me sirve, entre 6 a 16 caracteres yulisa!'
+            errorMessage: 'El nombre debe tener de 6 a 16 caracteres'
         },
         {
             element: emailInput,
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (email === '') return false;
                 return /^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email);
             },
-            errorMessage: '¡El correo es obligatorio y debe ser de Gmail, Manin! '
+            errorMessage: '¡El correo es obligatorio y debe ser de Gmail! '
         },
         {
             element: phoneInput,
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const phoneRegex = new RegExp(`^${escapedCountryCode}\\d{7,15}$`);
                 return phoneRegex.test(fullPhoneNumber);
             },
-            errorMessage: 'El numero de telefono debe contener entre 7 y 15 digitos numericos, ¡pilas!'
+            errorMessage: 'El numero de telefono debe contener entre 7 y 15 digitos'
         },
         {
             element: passwordInput,
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
                 return password.length >= 4 && password.length <= 18 && passwordRegex.test(password);
             },
-            errorMessage: 'Debe tener al menos 8 caractere($,1,M,m)¡Activate en la pista!'
+            errorMessage: 'Debe tener al menos 8 caractere($,1,M,m)'
         },
         {
             element: confirmPasswordInput,
