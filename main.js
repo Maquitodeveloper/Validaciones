@@ -64,12 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. Configuracion de los campos [fields]---
     const formFields = [
         {
-            element: usernameInput,
+           element: usernameInput,
             validationFn: (username) => {
-                if (username === '') return false;
-                return username.length >= 6 && username.length <= 16;
-            },
-            errorMessage: 'El nombre debe tener de 6 a 16 caracteres'
+    return /^[a-zA-Z0-9]{6,16}$/.test(username);
+},
+errorMessage: 'El nombre debe tener de 6 a 16 caracteres y solo puede contener letras y números.'
         },
         {
             element: emailInput,
